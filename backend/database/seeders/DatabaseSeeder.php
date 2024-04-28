@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Rent;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $faker = Faker::create('id-ID');
 
         User::insert([
             [
@@ -40,5 +45,17 @@ class DatabaseSeeder extends Seeder
                 "phone" => "0812345678910",
             ],
         ]);
+
+        // for ($i = 0; $i <= 10; $i++) {
+        //     Rent::create([
+        //         "tenant" => $faker->id(),
+        //         "no_car" => $faker->randomNumber(),
+        //         "date_borrow" => $faker->date(),
+        //         "date_return" => $faker->date(),
+        //         "down_payment" => $faker->randomFloat(),
+        //         "discount" => $faker->randomFloat(),
+        //         "total" => $faker->randomFloat(),
+        //     ]);
+        // };
     }
 }

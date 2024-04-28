@@ -7,6 +7,7 @@ import Return from "./pages/Return/Return";
 import Penalties from "./pages/Penalties/Penalties";
 import Register from "./pages/Register/Register";
 import DetailRegister from "./pages/Register/DetailRegister/DetailRegister";
+import RentDetail from "./pages/Rent/RentDetail/RentDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<Navbar />}>
         <Route index element={<Home />} />
         <Route path="rent" element={<Rent />} />
+        <Route path="rent/:id" element={<RentDetail />} />
         <Route path="return" element={<Return />} />
         <Route path="penalties" element={<Penalties />} />
 

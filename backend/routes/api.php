@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PenaltiesController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RentController;
+use App\Http\Controllers\ReturnCarController;
+use App\Models\Penalties;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +28,12 @@ Route::prefix('a1')->group(function () {
         // sanctum untuk membaca token
     });
 
-    Route::apiResource('register', RegisterController::class)->middleware('auth:sanctum');
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::apiResource('register', RegisterController::class);
+        Route::apiResource('rent', RentController::class);
+        Route::apiResource('return', ReturnCarController::class);
+        Route::apiResource('penalties', PenaltiesController::class);
+    });
 });
 
 
